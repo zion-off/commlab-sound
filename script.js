@@ -22,6 +22,7 @@ var bathroomoff = document.getElementById('bathroom-off');
 //toggles
 var seatbeltsign = false;
 var bathroomsign = false;
+var intheair = false;
 
 function startFunction() {
     //video elements
@@ -34,6 +35,8 @@ function startFunction() {
 }
 
 function launchFunction() {
+    //toggle
+    intheair = true;
     //audio elements
     taxi.pause();
     onboardannouncement.pause();
@@ -65,6 +68,8 @@ function launchFunction() {
 }
 
 function landFunction() {
+    // toggle
+    intheair = false;
     //audio elements
     inflight.pause();
     cloudloop.play();
@@ -92,18 +97,36 @@ function landFunction() {
 }
 
 function seatbeltFunction() {
-    if (seatbeltsign == false) {
-        setTimeout(() => {
-            seatbelton.play();
-            seatbeltsign = true;
-        }, 1000)
+    if (intheair == true) {
+        if (seatbeltsign == false) {
+            turbulenceannouncement.play();
+            setTimeout(() => {
+                seatbelton.play();
+                seatbeltsign = true;
+            }, 15000)
+        }
+        else if (seatbeltsign == true) {
+            setTimeout(() => {
+                seatbeltoff.play();
+                seatbeltsign = false;
+            }, 1000)
+        }
     }
-    else if (seatbeltsign == true) {
-        setTimeout(() => {
-            seatbeltoff.play();
-            seatbeltsign = false;
-        }, 1000)
+    else if (intheair == false) {
+        if (seatbeltsign == false) {
+            setTimeout(() => {
+                seatbelton.play();
+                seatbeltsign = true;
+            }, 1000)
+        }
+        else if (seatbeltsign == true) {
+            setTimeout(() => {
+                seatbeltoff.play();
+                seatbeltsign = false;
+            }, 1000)
+        }
     }
+    
 }
 
 function bathroomFunction() {
