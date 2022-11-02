@@ -6,6 +6,7 @@ var cloudrunway = document.getElementById('cloud-runway');
 var landfreeze = document.getElementById('land-freeze');
 
 //audio elements
+var boardingmusic = document.getElementById("boardingmusic");
 var taxi = document.getElementById("taxi");
 var onboardannouncement = document.getElementById("onboard-announcement");
 var takeoff = document.getElementById('takeoff');
@@ -28,6 +29,8 @@ function startFunction() {
     //video elements
     runwayloop.play();
     //audio elements
+    boardingmusic.play();
+    boardingmusic.volume = 0.04;
     taxi.play();
     setTimeout(() => {
         onboardannouncement.play();
@@ -48,6 +51,7 @@ function launchFunction() {
         setTimeout(() => {
             takeoff.pause();
             inflight.play();
+            inflight.volume = 0.6;
         }, 38000)
         //video elements
         setTimeout(() => {
