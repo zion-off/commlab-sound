@@ -66,6 +66,7 @@ function launchFunction() {
 
 function landFunction() {
     //audio elements
+    inflight.pause();
     cloudloop.play();
     landing.play();
     setTimeout(() => {
