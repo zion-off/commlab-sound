@@ -15,6 +15,7 @@ var landing = document.getElementById('landing');
 var landingannouncement = document.getElementById('landing-announcement');
 var seatbelton = document.getElementById('seatbelt-on');
 var seatbeltoff = document.getElementById('seatbelt-off');
+var turbulenceannouncement = document.getElementById('turbulence-announcement');
 var bathroomon = document.getElementById('bathroom-on');
 var bathroomoff = document.getElementById('bathroom-off');
 
@@ -90,17 +91,20 @@ function landFunction() {
 }
 
 function seatbeltFunction() {
+    setTimeout(() => {
+        turbulenceannouncement.play();
+    }, 1000)
     if (seatbeltsign == false) {
         setTimeout(() => {
             seatbelton.play();
-        }, 1000)
-        seatbeltsign = true;
+            seatbeltsign = true;
+        }, 15000)
     }
     else if (seatbeltsign == true) {
         setTimeout(() => {
             seatbeltoff.play();
-        }, 1000)
-        seatbeltsign = false;
+            seatbeltsign = false;
+        }, 15000)
     }
 }
 
@@ -108,14 +112,14 @@ function bathroomFunction() {
     if (bathroomsign == false) {
         setTimeout(() => {
             bathroomon.play();
+            bathroomsign = true;
         }, 1000)
-        bathroomsign = true;
     }
     else if (bathroomsign == true) {
         setTimeout(() => {
             bathroomoff.play();
+            bathroomsign = false;
         }, 1000)
-        bathroomsign = false;
     }
 }
 
