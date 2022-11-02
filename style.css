@@ -4,14 +4,25 @@ body {
     overflow: hidden;
 }
 
+video {
+    position: absolute;
+    visibility: hidden; 
+    width: 100vw; 
+    z-index: 1;
+}
+
+#runway-loop {
+visibility: visible; 
+}
+
 .cockpit {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     width: 100vw;
 }
 
 .buttons {
-    z-index: 3;
+    z-index: 4;
     display: flex;
     position: absolute;
     flex-direction: row;
@@ -20,6 +31,45 @@ body {
     justify-content: center;
     width: 100vw;
     bottom: 10vh;
+}
+
+.overhead-buttons {
+    z-index: 4;
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    gap: 9vw;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    top: 6vh;
+}
+
+#bathroom {
+    transform: skew(15deg, 0deg);
+}
+
+#seatbelt {
+    transform: skew(-15deg, 0deg);
+}
+
+#overhead-button {
+    font-family: 'Share Tech Mono', monospace;
+    color: #a17716;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.3em;
+    background: #e0d31a;
+    border: 1px solid #e0d31a;
+    transition: all .3s;
+    box-shadow: 1.5px 1.5px 3px #e1d862,
+        -1.5px -1.5px 3px #e1d862;
+}
+
+#overhead-button:active {
+    color: #775810;
+    box-shadow: inset 4px 4px 12px #e1d862,
+        inset -4px -4px 12px #e1d862;
 }
 
 .button-82-pushable {
