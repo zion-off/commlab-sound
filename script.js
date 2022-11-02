@@ -15,8 +15,12 @@ var landing = document.getElementById('landing');
 var landingannouncement = document.getElementById('landing-announcement');
 var seatbelton = document.getElementById('seatbelt-on');
 var seatbeltoff = document.getElementById('seatbelt-off');
+var bathroomon = document.getElementById('bathroom-on');
+var bathroomoff = document.getElementById('bathroom-off');
 
+//toggles
 var seatbeltsign = false;
+var bathroomsign = false;
 
 function startFunction() {
     //video elements
@@ -86,7 +90,6 @@ function landFunction() {
 }
 
 function seatbeltFunction() {
-    console.log(seatbeltsign);
     if (seatbeltsign == false) {
         setTimeout(() => {
             seatbelton.play();
@@ -98,6 +101,21 @@ function seatbeltFunction() {
             seatbeltoff.play();
         }, 1000)
         seatbeltsign = false;
+    }
+}
+
+function bathroomFunction() {
+    if (bathroomsign == false) {
+        setTimeout(() => {
+            bathroomon.play();
+        }, 1000)
+        bathroomsign = true;
+    }
+    else if (bathroomsign == true) {
+        setTimeout(() => {
+            bathroomoff.play();
+        }, 1000)
+        bathroomsign = false;
     }
 }
 
