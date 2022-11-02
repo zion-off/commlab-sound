@@ -35,65 +35,70 @@ function startFunction() {
 }
 
 function launchFunction() {
-    //toggle
-    intheair = true;
-    //audio elements
-    taxi.pause();
-    onboardannouncement.pause();
-    takeoff.play();
-    setTimeout(() => {
-        takeoffannouncement.play();
-    }, 500)
-    setTimeout(() => {
-        takeoff.pause();
-        inflight.play();
-    }, 38000)
-    //video elements
-    setTimeout(() => {
-        runwaycloud.play();
-        runwaycloud.style.visibility = "visible";
-    }, 3000)
-    setTimeout(() => {
-        runwayloop.pause();
-        runwayloop.style.visibility = "hidden";
-    }, 4000)
-    setTimeout(() => {
-        cloudloop.play();
-        cloudloop.style.visibility = "visible";
-    }, 37000)
-    setTimeout(() => {
-        runwaycloud.pause();
-        runwaycloud.style.visibility = "hidden";
-    }, 38000)
+    if (intheair == false) {
+        //toggle
+        intheair = true;
+        //audio elements
+        taxi.pause();
+        onboardannouncement.pause();
+        takeoff.play();
+        setTimeout(() => {
+            takeoffannouncement.play();
+        }, 500)
+        setTimeout(() => {
+            takeoff.pause();
+            inflight.play();
+        }, 38000)
+        //video elements
+        setTimeout(() => {
+            runwaycloud.play();
+            runwaycloud.style.visibility = "visible";
+        }, 3000)
+        setTimeout(() => {
+            runwayloop.pause();
+            runwayloop.style.visibility = "hidden";
+        }, 4000)
+        setTimeout(() => {
+            cloudloop.play();
+            cloudloop.style.visibility = "visible";
+        }, 37000)
+        setTimeout(() => {
+            runwaycloud.pause();
+            runwaycloud.style.visibility = "hidden";
+        }, 38000)
+    }
+
 }
 
 function landFunction() {
-    // toggle
-    intheair = false;
-    //audio elements
-    inflight.pause();
-    cloudloop.play();
-    landing.play();
-    setTimeout(() => {
-        landingannouncement.play();
-    }, 1000)
-    //video elements
-    setTimeout(() => {
-        cloudrunway.play();
-        cloudrunway.style.visibility = "visible";
-    }, 11000)
-    setTimeout(() => {
-        cloudloop.pause();
-        cloudloop.style.visibility = "hidden";
-    }, 11000)
-    setTimeout(() => {
-        landfreeze.play();
-        landfreeze.style.visibility = "visible";
-    }, 26000)
-    setTimeout(() => {
-        cloudrunway.play();
-        cloudrunway.style.visibility = "hiddden";
-    }, 27000)
+    if (intheair == true) {
+        // toggle
+        intheair = false;
+        //audio elements
+        inflight.pause();
+        cloudloop.play();
+        landing.play();
+        setTimeout(() => {
+            landingannouncement.play();
+        }, 1000)
+        //video elements
+        setTimeout(() => {
+            cloudrunway.play();
+            cloudrunway.style.visibility = "visible";
+        }, 11000)
+        setTimeout(() => {
+            cloudloop.pause();
+            cloudloop.style.visibility = "hidden";
+        }, 11000)
+        setTimeout(() => {
+            landfreeze.play();
+            landfreeze.style.visibility = "visible";
+        }, 26000)
+        setTimeout(() => {
+            cloudrunway.play();
+            cloudrunway.style.visibility = "hiddden";
+        }, 27000)
+    }
 }
 
 function seatbeltFunction() {
@@ -126,7 +131,7 @@ function seatbeltFunction() {
             }, 1000)
         }
     }
-    
+
 }
 
 function bathroomFunction() {
