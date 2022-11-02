@@ -92,9 +92,6 @@ function landFunction() {
 }
 
 function seatbeltFunction() {
-    // setTimeout(() => {
-    //     turbulenceannouncement.play();
-    // }, 1000)
     if (seatbeltsign == false) {
         setTimeout(() => {
             seatbelton.play();
